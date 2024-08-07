@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div v-for="history in projectStore.selectedProject.history" :key="history.msg" class="h-full w-full flex flex-col items-center border-b-[1px] border-b-gray-100 mb-6">
         <div class="w-[90%] h-14 flex items-center">
             <div class="w-2/12"><i>{{new Date(history.time).getHours()}} : {{new Date(history.time).getMinutes()}} {{new Date(history.time).getHours()>= 12 ? 'pm':'am'}} </i></div>
@@ -13,7 +13,7 @@
     </div>
 
 </template>
-<script>
+<script lang="ts">
 import { useProjectStore } from '../../store';
 import { truncate } from '../../utils';
 

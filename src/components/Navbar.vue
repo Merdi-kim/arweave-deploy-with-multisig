@@ -1,4 +1,5 @@
 <script setup lang="ts">
+//@ts-ignore
 import NewProject from "./modals/NewProject.vue";
 </script>
 

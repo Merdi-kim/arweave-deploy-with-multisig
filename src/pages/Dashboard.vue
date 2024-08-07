@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { dryrun } from "@permaweb/aoconnect";
 import Project from "../components/cards/Project.vue"
+//@ts-ignore
 import NoProcessSelected from "../components/NoProjectSelected.vue"
 import ProjectView from "../components/projectView/Index.vue"
 import { REGISTRY } from "../utils";
@@ -12,7 +13,7 @@ import { useProjectStore, useUserInfoStore } from "../store";
         <div class="w-3/12 border-r-[1px] border-gray-300 py-4">
             <h3 class="font-semibold mb-8 pl-2 text-xl">My Projects</h3>
             <div v-if="!!projects.length">
-                <Project v-for="project in projects" :key="project.id" :project="{project}"/>
+                <Project v-for="project in projects" :key="project.id" :project="project"/>
             </div>
             <div v-else class="h-full w-full flex items-center justify-center font-extralight"><i>No Projects yet</i></div>
         </div>
@@ -27,7 +28,7 @@ import { useProjectStore, useUserInfoStore } from "../store";
 export default {
     data() {
         return {
-            projects: [],
+            projects: [] as Array<{id:string, multisig:string, name:string, createdAt:string, history:[]}>,
             projectStore: useProjectStore()
         }
     },

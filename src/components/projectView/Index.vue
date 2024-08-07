@@ -1,6 +1,8 @@
 <script setup lang="ts">
    import { useProjectStore } from "../../store";
+   //@ts-ignore
    import History from "./History.vue";
+   //@ts-ignore
    import Settings from "./Settings.vue";
 </script>
 

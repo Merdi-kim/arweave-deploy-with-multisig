@@ -15,7 +15,7 @@ import { PropType } from 'vue';
 export default {
     props:{
         project: {
-            type: { } as PropType<{id:string, name:string, multisig:string, createdAt:string}>,
+            type: { } as PropType<{id:string, name:string, multisig:string, createdAt:string, history:[]}>,
             required:true
         }
     },
@@ -42,7 +42,7 @@ export default {
 
     setup({project}) {
         return {
-            project:project.project
+            project
         }
     }
     
