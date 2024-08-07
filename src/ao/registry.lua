@@ -19,7 +19,8 @@ Handlers.add("Register-Process", "Register", function(msg)
         id = processId,
         name = name,
         multisig = multisig,
-        createdAt = msg.Timestamp
+        createdAt = msg.Timestamp,
+        history = {}
     }
     if not registry[msg.From] then 
         registry[msg.From] = {}
@@ -29,4 +30,16 @@ end)
 
 Handlers.add("Delete-Process", "Delete", function(msg)
     --here
+end)
+
+Handlers.add("Deploy", "Deploy", function(msg)
+    local process = msg.Tags.Process 
+    local commit = msg.Tags.Commit 
+    local project = registry[msg.From]
+    for i, v in ipairs(project) do
+		if v.id == process then
+			table.insert(v.history, {time = msg.Timestamp, msg = commit, author = msg.From})
+			return
+		end
+	end
 end)
