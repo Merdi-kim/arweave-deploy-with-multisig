@@ -23,7 +23,7 @@ export const useProjectStore = defineStore("project", {
       multisig:"",
       name:"",
       createdAt:"",
-      history: [] as Array<{time:string, authot:string, msg:string}> ,
+      history: [] as Array<{time:string, author:string, msg:string}> ,
     }
   }),
   getters: {
@@ -32,7 +32,7 @@ export const useProjectStore = defineStore("project", {
     },
   },
   actions: {
-    setSelectedProject(project:{id:string, multisig:string, name:string, createdAt:string, history:Array<{time:string, authot:string, msg:string}>}) {
+    setSelectedProject(project:{id:string, multisig:string, name:string, createdAt:string, history:Array<{time:string, author:string, msg:string}>}) {
       this.selectedProject = project;
     },
   },

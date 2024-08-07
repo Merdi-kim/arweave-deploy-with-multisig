@@ -28,7 +28,7 @@ export default {
                 name:"",
                 multisig:"",
                 createdAt:"",
-                history:[]
+                history:[] as Array<{time:string, author:string, msg:string}>
             }
         }
     },
